@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import classes from "./Header.module.scss";
 
@@ -16,8 +16,16 @@ const Header: React.FC = () => {
     width: undefined,
     height: undefined,
   });
+  const location = useLocation();
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      setSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
     const handleResize = () => {
       setSize({
         width: window.innerWidth,
@@ -30,10 +38,12 @@ const Header: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (size.width && size.width > 768 && menuOpen) {
-      setMenuOpen(false);
+    if (size.width !== undefined) {
+      if (size.width > 768) {
+        setMenuOpen(false);
+      }
     }
-  }, [size.width, menuOpen]);
+  }, [size.width]);
 
   const menuToggleHandler = () => {
     setMenuOpen((prevState) => !prevState);
@@ -42,17 +52,36 @@ const Header: React.FC = () => {
   return (
     <header className={classes.header}>
       <div className={classes.content}>
-        <Link to="/" className={classes.logo}>
+        <Link
+          to="/"
+          className={classes.logo}
+          onClick={() => {
+            menuToggleHandler();
+            if (location.pathname === "/") {
+              setMenuOpen(false);
+            }
+          }}
+        >
           Liza Balizka
         </Link>
         <nav
           className={`${classes.nav} ${
-            menuOpen && size.width && size.width < 768 ? classes.isMenu : ""
+            menuOpen && size.width && size.width < 768
+              ? classes.isMenu
+              : classes.withoutMenu
           }`}
         >
           <ul>
             <li>
-              <Link to="/works" onClick={menuToggleHandler}>
+              <Link
+                to="/works"
+                onClick={() => {
+                  menuToggleHandler();
+                  if (location.pathname === "/works") {
+                    setMenuOpen(false);
+                  }
+                }}
+              >
                 Works
               </Link>
             </li>
