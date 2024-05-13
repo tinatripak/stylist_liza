@@ -24,10 +24,11 @@
             height: 27rem;
             margin: 0 auto;
             display: flex;
+            object-fit: fill;
 
             @include breakpoint(sm) {
-              height: 85%;
-              width: 85%;
+              height: 16rem;
+              width: 16rem;
             }
           }
         }
