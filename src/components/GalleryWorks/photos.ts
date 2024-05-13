@@ -1,4 +1,18 @@
-const projects = [
+interface Image {
+  id: string;
+  src: string;
+  width: number;
+  height: number;
+}
+
+interface Project {
+  id: string;
+  name: string;
+  theme_capsule: string;
+  images: Image[];
+}
+
+const projects: Project[] = [
   {
     id: "1",
     name: "Project 1",
@@ -37,7 +51,7 @@ const projects = [
   },
 ];
 
-const photos = projects.map((project) => ({
+const photos: Project[] = projects.map((project) => ({
   id: project.id,
   name: project.name,
   theme_capsule: project.theme_capsule,

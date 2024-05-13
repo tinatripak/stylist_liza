@@ -1,4 +1,3 @@
-import { useLocation } from "react-router-dom";
 import React from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -8,8 +7,6 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
-  const { pathname } = useLocation();
-
   return (
     <div>
       <Header />
