@@ -1,0 +1,36 @@
+@import "../../styles/variables.scss";
+
+.gallery_works {
+  .work {
+    border-bottom: 1px solid $dark_red;
+    padding: 2rem 0;
+    .name {
+      font-family: $Ms_Madi;
+      font-size: 3rem;
+    }
+    .theme {
+      text-align: right;
+    }
+    .images {
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .image {
+          width: 27rem;
+          height: 27rem;
+
+          margin: 1rem 1rem;
+
+          @include breakpoint(sm) {
+            width: 80%;
+          }
+        }
+      }
+      button {
+        z-index: 1 !important;
+      }
+    }
+  }
+}

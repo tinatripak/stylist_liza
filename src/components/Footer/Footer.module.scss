@@ -1,0 +1,30 @@
+@import "../../styles/variables.scss";
+
+footer {
+  background-color: #ffffff;
+  box-shadow: 10px 10px 10px 10px #f7f2ef;
+  color: $red;
+  a {
+    color: $red;
+  }
+  .footer {
+    width: 85%;
+    margin: 0 auto;
+    padding: 3rem 0rem;
+
+    .instagram {
+      text-decoration: underline;
+      font-size: 1.5rem;
+      font-family: $Teachers;
+    }
+    .email {
+      font-size: 1.4rem;
+      font-family: $Crimson_Text;
+    }
+    .name {
+      font-size: 2.5rem;
+      padding-top: 2rem;
+      font-family: $Dancing_Script;
+    }
+  }
+}

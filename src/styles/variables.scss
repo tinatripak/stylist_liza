@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dancing+Script:wght@400..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Ms+Madi&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap");
+
+$Poppins: "Poppins", sans-serif;
+$Playfair_Display: "Playfair Display", serif;
+$Lora: "Lora", serif;
+$Dancing_Script: "Dancing Script", cursive;
+$Crimson_Text: "Crimson Text", serif;
+$Teachers: "Teachers", sans-serif;
+$Ms_Madi: "Ms Madi", cursive;
+
+$dark: rgb(29, 29, 29);
+$red: #ff340a;
+$dark_red: #c7000c;
+$light: #fff;
+$primary: rgb(162, 162, 246);
+$bg: rgb(244, 244, 255);
+
+$spacing-md: 16px;
+$spacing-lg: 32px;
+
+$borderRadius: 12px;
+
+$headerHeight: 100px;
+
+@mixin breakpoint($point) {
+  @if $point == lg {
+    @media (max-width: 62em) {
+      @content;
+    }
+  }
+  @if $point == md {
+    @media (min-width: 48em) {
+      @content;
+    }
+  }
+  @if $point == xmd {
+    @media (max-width: 47em) {
+      @content;
+    }
+  }
+  @if $point == sm {
+    @media (max-width: 36em) {
+      @content;
+    }
+  }
+  @if $point == xs {
+    @media (max-width: 30em) {
+      @content;
+    }
+  }
+}
